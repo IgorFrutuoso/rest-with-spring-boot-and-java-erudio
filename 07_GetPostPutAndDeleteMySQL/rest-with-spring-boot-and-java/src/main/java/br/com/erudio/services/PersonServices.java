@@ -18,14 +18,14 @@ public class PersonServices {
 	@Autowired
 	PersonRepository repository;
 	
-	public List<Person> findAll() {
+	public List<PersonVO> findAll() {
 
 		logger.info("Find all People!");
 
 		return repository.findAll();
 	}
 
-	public Person findById(Long id) {
+	public PersonVO findById(Long id) {
 
 		logger.info("Find one Person!");
 
@@ -33,12 +33,12 @@ public class PersonServices {
 				.orElseThrow(() -> new ResourceNotFoundException("No records found for this ID!"));
 	}
 	
-	public Person create(Person person) {
+	public PersonVO create(PersonVO person) {
 		logger.info("Creating one Person!");
 		return repository.save(person);
 	}
 	
-	public Person update(Person person) {
+	public PersonVO update(PersonVO person) {
 		logger.info("Updating one Person!");
 		
 		var entity = repository.findById(person.getId())
