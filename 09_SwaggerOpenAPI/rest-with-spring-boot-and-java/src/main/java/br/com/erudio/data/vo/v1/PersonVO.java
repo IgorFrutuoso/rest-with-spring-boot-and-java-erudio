@@ -4,11 +4,12 @@ import java.io.Serializable;
 import java.util.Objects;
 
 import org.springframework.hateoas.RepresentationModel;
+import org.springframework.web.bind.annotation.Mapping;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-@JsonPropertyOrder({"id","firstName","lastName","address","gender"})
+@JsonPropertyOrder({ "id", "firstName", "lastName", "address", "gender" })
 public class PersonVO extends RepresentationModel<PersonVO> implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -16,13 +17,13 @@ public class PersonVO extends RepresentationModel<PersonVO> implements Serializa
 	@JsonProperty("id")
 	private Long key;
 	private String firstName;
-	private String lastName;	
-	private String address;	
+	private String lastName;
+	private String address;
 	private String gender;
 
 	public PersonVO() {
 	}
-	
+
 	public Long getKey() {
 		return key;
 	}
@@ -84,7 +85,5 @@ public class PersonVO extends RepresentationModel<PersonVO> implements Serializa
 				&& Objects.equals(gender, other.gender) && Objects.equals(key, other.key)
 				&& Objects.equals(lastName, other.lastName);
 	}
-
-
 
 }
